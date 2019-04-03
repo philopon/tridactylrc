@@ -1,0 +1,16 @@
+#context-savepage,
+#context-pocket,
+#context-sep-sendpagetodevice,
+#context-sendpagetodevice,
+#context-sep-viewbgimage,
+#context-viewbgimage,
+#context-selectall,
+#context-sep-viewsource,
+#context-viewsource,
+#inspect-separator,
+#context-inspect,
+#onepassword4_agilebits_com-menuitem-1,
+#statuspanel[type="overLink"]
+{
+    display: none !important
+}

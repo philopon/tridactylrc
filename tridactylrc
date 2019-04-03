@@ -1,0 +1,45 @@
+sanitise tridactylsync tridactyllocal
+
+guiset_quiet tabs always
+guiset_quiet navbar always
+guiset_quiet hoverlink left
+
+colors dark
+
+set allowautofocus false
+set viewsource default
+set hintchars asdfghjkl;
+
+bind h tabprev
+bind l tabnext
+bind <C-h> scrollpx -100 0
+bind <C-l> scrollpx 100 0
+bind H back
+bind L forward
+
+bind u undo
+bind U fillcmdline undo
+
+unbind --mode=ex <C-j>
+
+unbindurl feedly\.com j
+unbindurl feedly\.com k
+
+unbindurl mail\.google\.com j
+unbindurl mail\.google\.com k
+unbindurl mail\.google\.com o
+unbindurl mail\.google\.com x
+unbindurl mail\.google\.com e
+
+seturl .*?:\d+/notebooks/.*\.ipynb allowautofocus true
+unbindurl .*?:\d+/notebooks/.*\.ipynb j
+unbindurl .*?:\d+/notebooks/.*\.ipynb k
+unbindurl .*?:\d+/notebooks/.*\.ipynb a
+unbindurl .*?:\d+/notebooks/.*\.ipynb b
+unbindurl .*?:\d+/notebooks/.*\.ipynb d
+unbindurl .*?:\d+/notebooks/.*\.ipynb <Enter>
+
+seturl .*?:\d+/lab allowautofocus true
+blacklistadd .*?:\d+/lab
+
+command update_userchrome js (async() => {const N = tri.native; if (!(await N.nativegate('0.1.1'))) return; const prof = await N.getProfileDir(); const rc = await N.getrcpath(); const spath = rc.match(/(.*\/).*/)[1] + 'userChrome.css'; const src = await N.read(spath); await N.write(prof + "/chrome/userChrome.css", src.content) })()
